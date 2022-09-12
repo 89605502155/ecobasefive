@@ -1,0 +1,45 @@
+.navigation{
+  @apply bg-black p-5 flex;
+  >h3{
+    @apply flex-1;
+  }
+  >div{
+    @apply flex-1;
+    >ul{
+      @apply flex items-center justify-between;
+      >li{
+        @apply align-middle;
+        >a{
+          /* @apply text-white hover:text-green-800; */
+          align-items: center;
+          @apply text-white hover:text-green-800 relative flex align-middle justify-center;
+
+          /*active page*/
+          &.active{
+            @apply text-damaskrose;
+
+            &::after{
+              @apply w-full bg-damaskrose;
+            }
+          }
+
+          &:hover::after{
+            @apply w-full;
+          }
+
+          &::after{
+            @apply w-0 h-1 rounded bg-green-800 transition-all duration-300
+            absolute -bottom-1.5 left-0;
+            content: '';
+          }
+        }
+      }
+    }
+  }
+}
+
+.littelNav{
+  @media (max-width: 400px){
+    @apply bg-red-600;
+  }
+}

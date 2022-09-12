@@ -1,0 +1,14 @@
+<nav class="navigation">
+  <h3 class="flex text-white">{{nameOfSite|uppercase}}</h3>
+  <div>
+  <!-- <div class="burger" (click)="toggleNavbar()">
+    <mat-icon>{{showMenu?"close":"menu"}}</mat-icon>
+  </div>
+  <ul [class.is-open]="showMenu"> -->
+  <ul>
+    <li *ngFor="let item of menuItems"><a [routerLink]="item.path"
+      routerLinkActive="active"><mat-icon>{{item.icon}}</mat-icon>
+      <span>{{item.name|uppercase}}</span></a></li>
+  </ul>
+</div>
+</nav>
