@@ -32,6 +32,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         database: config.get<string>('TYPEORM_DATABASE'),
         port: config.get<number>('TYPEORM_PORT'),
         entities: [__dirname + 'dist/**/*.entity{.ts,.js}'],
+        migrations: [__dirname + 'dist/**/*.migration{.ts,.js}'],
         synchronize: true,
         autoLoadEntities: true,
         logging: true,
@@ -43,4 +44,4 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 })
 export class AppModule {}
 
-// 3/38
+// 5/47

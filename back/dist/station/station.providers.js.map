@@ -1,0 +1,1 @@
+{"version":3,"file":"station.providers.js","sourceRoot":"","sources":["../../src/station/station.providers.ts"],"names":[],"mappings":";;;AACA,0CAA+D;AAE/D,qDAAiD;AAEpC,QAAA,gBAAgB,GAAG;IAC9B;QACE,OAAO,EAAE,6BAAkB;QAC3B,UAAU,EAAE,CAAC,UAAsB,EAAE,EAAE,CAAC,UAAU,CAAC,aAAa,CAAC,8BAAa,CAAC;QAC/E,MAAM,EAAE,CAAC,sBAAW,CAAC;KACtB;CACF,CAAC"}
