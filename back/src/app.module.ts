@@ -44,4 +44,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 })
 export class AppModule {}
 
-// 5/47
+//6/21
+
+//"typeorm": "typeorm-ts-node-commonjs",

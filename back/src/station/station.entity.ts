@@ -1,5 +1,5 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { DepthEntity } from './depth.entity';
 // import { IDepth } from './depth.interface';
 
@@ -7,15 +7,15 @@ import { DepthEntity } from './depth.entity';
 @Entity({name:"station"})
 export class StationEntity {
     @Field()
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn({name:"name"})
     name: string;
 
     @Field()
-    @Column({ length: 500 })
+    @Column({name:"longitude"})
     longitude: number;
 
     @Field()
-    @Column()
+    @Column({name:"latitude"})
     latitude: number;
 
     // @Column()
@@ -23,13 +23,5 @@ export class StationEntity {
 
     @OneToMany(()=>DepthEntity, (depths)=>depths.station)
     depths?: DepthEntity[]
-
-    @Field()
-    @CreateDateColumn({name:'createdAt'})
-    createdAt: Date;
-
-    @Field()
-    @UpdateDateColumn({name:'updateAt'})
-    updateAt: Date;
 
 }
