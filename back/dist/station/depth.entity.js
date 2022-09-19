@@ -34,16 +34,6 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => station_entity_1.StationEntity, (station) => station.depths),
     __metadata("design:type", station_entity_1.StationEntity)
 ], DepthEntity.prototype, "station", void 0);
-__decorate([
-    (0, graphql_1.Field)(),
-    (0, typeorm_1.CreateDateColumn)({ name: 'createdAt' }),
-    __metadata("design:type", Date)
-], DepthEntity.prototype, "createdAt", void 0);
-__decorate([
-    (0, graphql_1.Field)(),
-    (0, typeorm_1.UpdateDateColumn)({ name: 'updateAt' }),
-    __metadata("design:type", Date)
-], DepthEntity.prototype, "updateAt", void 0);
 DepthEntity = __decorate([
     (0, graphql_1.ObjectType)(),
     (0, typeorm_1.Entity)({ name: "depth" })

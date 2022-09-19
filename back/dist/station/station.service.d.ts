@@ -1,4 +1,7 @@
+import { Repository } from 'typeorm';
+import { StationEntity } from './station.entity';
 export declare class StationService {
-    constructor();
-    getAll(): Promise<string>;
+    private usersRepository;
+    constructor(usersRepository: Repository<StationEntity>);
+    getAll(): Promise<StationEntity[]>;
 }

@@ -17,33 +17,23 @@ let StationEntity = class StationEntity {
 };
 __decorate([
     (0, graphql_1.Field)(),
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: "name" }),
     __metadata("design:type", String)
 ], StationEntity.prototype, "name", void 0);
 __decorate([
     (0, graphql_1.Field)(),
-    (0, typeorm_1.Column)({ length: 500 }),
+    (0, typeorm_1.Column)({ name: "longitude" }),
     __metadata("design:type", Number)
 ], StationEntity.prototype, "longitude", void 0);
 __decorate([
     (0, graphql_1.Field)(),
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ name: "latitude" }),
     __metadata("design:type", Number)
 ], StationEntity.prototype, "latitude", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => depth_entity_1.DepthEntity, (depths) => depths.station),
     __metadata("design:type", Array)
 ], StationEntity.prototype, "depths", void 0);
-__decorate([
-    (0, graphql_1.Field)(),
-    (0, typeorm_1.CreateDateColumn)({ name: 'createdAt' }),
-    __metadata("design:type", Date)
-], StationEntity.prototype, "createdAt", void 0);
-__decorate([
-    (0, graphql_1.Field)(),
-    (0, typeorm_1.UpdateDateColumn)({ name: 'updateAt' }),
-    __metadata("design:type", Date)
-], StationEntity.prototype, "updateAt", void 0);
 StationEntity = __decorate([
     (0, graphql_1.ObjectType)(),
     (0, typeorm_1.Entity)({ name: "station" })

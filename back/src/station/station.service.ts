@@ -1,14 +1,25 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { StationEntity } from './station.entity';
 
 @Injectable()
 export class StationService {
-    constructor(){}
+    constructor(
+        @InjectRepository(StationEntity)
+        private usersRepository: Repository<StationEntity>,
+      ) {}
 
     // TODO: Connect TypeORM
-    // TODO: Create model/entity station
 
     async getAll(){
-        // return [
+        return this.usersRepository.find()
+    }
+}
+
+
+
+// return [
         //     {"name":"5586","lat":73.1105,"lon":61.3195,"depths":[{"depth":1,"salinity":31.3,"DOC":164.17},{"depth":25,"salinity":33.8,"DOC":174.17},{"depth":45,"salinity":34.1,"DOC":160.83},{"depth":55,"salinity":34.1,"DOC":130},{"depth":65,"salinity":34.2,"DOC":175.83},{"depth":75,"salinity":34.3,"DOC":166.67},{"depth":87,"salinity":34.3,"DOC":174.17}]},
         //     {"name":"5587","lat":74.7819,"lon":66.5903,"depths":[{"depth":1,"salinity":25.9,"DOC":314.17},{"depth":5,"salinity":25.9,"DOC":298.33},{"depth":18,"salinity":33.5,"DOC":156.67},{"depth":30,"salinity":33.9,"DOC":120.83},{"depth":60,"salinity":34,"DOC":123.33},{"depth":150,"salinity":34.3,"DOC":128.33},{"depth":186,"salinity":34.4,"DOC":140}]},
         //     {"name":"5588","lat":73.9047,"lon":72.9762,"depths":[{"depth":1,"salinity":19.9,"DOC":414.17},{"depth":5,"salinity":20.5,"DOC":575},{"depth":20,"salinity":30.7,"DOC":217.5},{"depth":27,"salinity":32.5,"DOC":146.67}]},
@@ -38,6 +49,3 @@ export class StationService {
         //     {"name":"5634","lat":77.6472,"lon":115.5372,"depths":[{"depth":1,"salinity":30.1,"DOC":232.5},{"depth":10,"salinity":30.1,"DOC":145.83},{"depth":18,"salinity":33.2,"DOC":458.33},{"depth":40,"salinity":34,"DOC":193.33},{"depth":80,"salinity":34.4,"DOC":174.17},{"depth":100,"salinity":34.5,"DOC":410},{"depth":175,"salinity":34.7,"DOC":162.5}]},
         //     {"name":"5641-2","lat":75.6071,"lon":63.6658,"depths":[{"depth":15,"salinity":34.1,"DOC":145.83}]},{"name":"5642","lat":75.686,"lon":63.7118,"depths":[{"depth":110,"salinity":34.4,"DOC":96.67}]}
         // ]
-        return "MSU Sambo"
-    }
-}

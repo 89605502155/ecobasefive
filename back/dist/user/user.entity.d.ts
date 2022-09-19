@@ -13,9 +13,7 @@ export declare class UserEntity {
     country: string;
     university: string;
     department: string;
-    work: string;
     roles: UserRole;
     isVerified: boolean;
     createdAt: Date;
-    updateAt: Date;
 }

@@ -4,6 +4,4 @@ export declare class StationEntity {
     longitude: number;
     latitude: number;
     depths?: DepthEntity[];
-    createdAt: Date;
-    updateAt: Date;
 }

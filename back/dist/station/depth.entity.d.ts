@@ -4,6 +4,4 @@ export declare class DepthEntity {
     salinity?: number;
     DOC?: number;
     station: StationEntity;
-    createdAt: Date;
-    updateAt: Date;
 }

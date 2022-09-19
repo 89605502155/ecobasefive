@@ -1,5 +1,5 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
 // import { IDepth } from './depth.interface';
 
 export enum UserRole {
@@ -48,10 +48,6 @@ export class UserEntity {
     department: string;
 
     @Field()
-    @Column()
-    work: string;
-
-    @Field()
     @Column({
         type: "set",
         enum: UserRole,
@@ -69,7 +65,6 @@ export class UserEntity {
     @CreateDateColumn({name:'createdAt'})
     createdAt: Date;
 
-    @Field()
-    @UpdateDateColumn({name:'updateAt'})
-    updateAt: Date;
 }
+
+//- ./pgdata:/var/lib/postgresql/data

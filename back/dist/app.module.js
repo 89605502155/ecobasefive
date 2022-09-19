@@ -17,6 +17,7 @@ const graphql_1 = require("@nestjs/graphql");
 const apollo_1 = require("@nestjs/apollo");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
+const typeorm_config_1 = require("./config/typeorm.config");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -30,22 +31,7 @@ AppModule = __decorate([
                 playground: true,
                 autoSchemaFile: 'sheme.gql'
             }),
-            typeorm_1.TypeOrmModule.forRootAsync({
-                imports: [config_1.ConfigModule],
-                inject: [config_1.ConfigService],
-                useFactory: async (config) => ({
-                    type: config.get('TYPEORM_CONNECTION'),
-                    host: config.get('TYPEORM_HOST'),
-                    username: config.get('TYPEORM_USERNAME'),
-                    password: config.get('TYPEORM_PASSWORD'),
-                    database: config.get('TYPEORM_DATABASE'),
-                    port: config.get('TYPEORM_PORT'),
-                    entities: [__dirname + 'dist/**/*.entity{.ts,.js}'],
-                    synchronize: true,
-                    autoLoadEntities: true,
-                    logging: true,
-                })
-            }),
+            typeorm_1.TypeOrmModule.forRootAsync(typeorm_config_1.typeOrmAsyncConfig)
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

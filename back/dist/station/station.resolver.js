@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StationResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
+const station_entity_1 = require("./station.entity");
 const station_service_1 = require("./station.service");
 let StationResolver = class StationResolver {
     constructor(stationService) {
@@ -21,7 +22,7 @@ let StationResolver = class StationResolver {
     }
 };
 __decorate([
-    (0, graphql_1.Query)(() => String),
+    (0, graphql_1.Query)(() => [station_entity_1.StationEntity]),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)

@@ -67,11 +67,6 @@ __decorate([
 ], UserEntity.prototype, "department", void 0);
 __decorate([
     (0, graphql_1.Field)(),
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], UserEntity.prototype, "work", void 0);
-__decorate([
-    (0, graphql_1.Field)(),
     (0, typeorm_1.Column)({
         type: "set",
         enum: UserRole,
@@ -91,11 +86,6 @@ __decorate([
     (0, typeorm_1.CreateDateColumn)({ name: 'createdAt' }),
     __metadata("design:type", Date)
 ], UserEntity.prototype, "createdAt", void 0);
-__decorate([
-    (0, graphql_1.Field)(),
-    (0, typeorm_1.UpdateDateColumn)({ name: 'updateAt' }),
-    __metadata("design:type", Date)
-], UserEntity.prototype, "updateAt", void 0);
 UserEntity = __decorate([
     (0, graphql_1.ObjectType)(),
     (0, typeorm_1.Entity)({ name: "user" })

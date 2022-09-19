@@ -6,8 +6,9 @@ import { AuthModule } from './auth/auth.module';
 import { StationModule } from './station/station.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { typeOrmAsyncConfig } from './config/typeorm.config';
 
 
 @Module({
@@ -20,30 +21,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       playground: true,
       autoSchemaFile: 'sheme.gql'
     }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (config: ConfigService) => ({
-        // type: config.get<"aurora-postgres">('TYPEORM_CONNECTION'),
-        type: config.get<"postgres">('TYPEORM_CONNECTION'),
-        host: config.get<string>('TYPEORM_HOST'),
-        username: config.get<string>('TYPEORM_USERNAME'),
-        password: config.get<string>('TYPEORM_PASSWORD'),
-        database: config.get<string>('TYPEORM_DATABASE'),
-        port: config.get<number>('TYPEORM_PORT'),
-        entities: [__dirname + 'dist/**/*.entity{.ts,.js}'],
-        migrations: [__dirname + 'dist/**/*.migration{.ts,.js}'],
-        synchronize: true,
-        autoLoadEntities: true,
-        logging: true,
-
-      })
-    }),],
+    TypeOrmModule.forRootAsync(typeOrmAsyncConfig)
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
 
-//6/21
+//8/38
 
 //"typeorm": "typeorm-ts-node-commonjs",

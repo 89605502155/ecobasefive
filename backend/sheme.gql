@@ -1,0 +1,13 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Query {
+  getAll: [StationEntity!]!
+}
+
+type StationEntity {
+  latitude: Float!
+  longitude: Float!
+  name: String!
+}
