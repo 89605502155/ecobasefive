@@ -1,6 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Entity,  Column, ManyToOne} from "typeorm"
-import { StationEntity } from './station.entity'
+import { StationEntity } from '../../station/entities/station.entity'
 
 @ObjectType()
 @Entity({name:"depth"})

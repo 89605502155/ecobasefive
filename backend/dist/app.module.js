@@ -36,7 +36,8 @@ AppModule = __decorate([
                     database: config.get('TYPEORM_DATABASE'),
                     port: config.get('TYPEORM_PORT'),
                     entities: [__dirname + 'dist/**/*.entity{.ts,.js}'],
-                    synchronize: true,
+                    synchronize: false,
+                    migrations: [__dirname + 'dist/**/*.migration{.ts,.js}'],
                     autoLoadEntities: true,
                     logging: true,
                 })
