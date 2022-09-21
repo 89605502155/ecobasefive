@@ -1,23 +1,31 @@
-import { Field, ObjectType } from '@nestjs/graphql';
-import { Entity,  Column, ManyToOne} from "typeorm"
-import { StationEntity } from '../../station/entities/station.entity'
+import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { Entity,  Column,  PrimaryGeneratedColumn} from "typeorm"
 
 @ObjectType()
 @Entity({name:"depth"})
 export class DepthEntity {
+    @Field(()=>ID)
+    @PrimaryGeneratedColumn({name:"id"})
+    id: number;
+
     @Field()
-    @Column()
+    @Column({name:"depth"})
     depth: number;
 
     @Field({nullable:true})
-    @Column({nullable:true})
-    salinity: number
+    @Column({nullable:true, name:"salinity"})
+    salinity: number;
 
     @Field({nullable:true})
-    @Column({nullable:true})
-    DOC: number
+    @Column({nullable:true, name:"DOC"})
+    DOC: number;
 
-    @ManyToOne(()=>StationEntity,(station)=>station.name)
-    station: StationEntity
+    // @Field(()=>StationEntity)
+    // @ManyToOne(()=>StationEntity,(station)=>station.name)
+    // station: string
+
+    @Field()
+    @Column({name:"station"})
+    station:string;
 
 }

@@ -13,6 +13,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const station_module_1 = require("./station/station.module");
 const graphql_1 = require("@nestjs/graphql");
 const apollo_1 = require("@nestjs/apollo");
+const depth_module_1 = require("./depth/depth.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -36,13 +37,13 @@ AppModule = __decorate([
                     database: config.get('TYPEORM_DATABASE'),
                     port: config.get('TYPEORM_PORT'),
                     entities: [__dirname + 'dist/**/*.entity{.ts,.js}'],
-                    synchronize: false,
-                    migrations: [__dirname + 'dist/**/*.migration{.ts,.js}'],
+                    synchronize: true,
                     autoLoadEntities: true,
                     logging: true,
                 })
             }),
-            station_module_1.StationModule
+            station_module_1.StationModule,
+            depth_module_1.DepthModule
         ],
         controllers: [],
         providers: [],

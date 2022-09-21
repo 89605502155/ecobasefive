@@ -26,8 +26,8 @@ import { DepthModule } from './depth/depth.module';
 				database: config.get<string>('TYPEORM_DATABASE'),
 				port: config.get<number>('TYPEORM_PORT'),
 				entities: [ __dirname + 'dist/**/*.entity{.ts,.js}' ],
-				synchronize: false,
-        migrations:[__dirname + 'dist/**/*.migration{.ts,.js}'],
+				synchronize: true,
+        // migrations:[__dirname + 'dist/**/*.migration{.ts,.js}'],
 				autoLoadEntities: true,
 				logging: true,
       })

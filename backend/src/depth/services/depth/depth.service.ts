@@ -10,7 +10,11 @@ export class DepthService {
         private readonly depthsRepository: Repository<DepthEntity>,
     ){}
 
-    async getAll():Promise<DepthEntity[]>{
+    async getAllDepths():Promise<DepthEntity[]>{
         return this.depthsRepository.find()
     }
+    // async getDepthByStation(station: string):Promise<DepthEntity[]>{
+    //     return this.depthsRepository.findBy({station})
+    // }
+
 }

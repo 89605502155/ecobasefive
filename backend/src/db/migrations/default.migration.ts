@@ -3,8 +3,9 @@ import { MigrationInterface, QueryRunner } from "typeorm"
 export class DefaultMigration implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {    
-        await queryRunner.query(`CREATE TABLE stations_item (
-            name text PRIMARY KEY ,
+        await queryRunner.query(`CREATE TABLE depths_item (
+            id numeric PRIMARY KEY
+            name text REFERENCES stations_item (station_name),
             depth numeric CHECK (depth >= 0),
             salinity numeric,
             DOC numeric
@@ -25,8 +26,8 @@ export class DefaultMigration implements MigrationInterface {
                 created_at date
         )`)
 
-        await queryRunner.query(`CREATE TABLE depths_item (
-            station_name text REFERENCES stations_item (name),
+        await queryRunner.query(`CREATE TABLE stations_item (
+            station_name text PRIMARY KEY,
             longitude numeric NOT NULL CHECK (longitude >= -180 AND longitude <= 180),
             latitude numeric NOT NULL CHECK (latitude >= -90 AND latitude <= 90)
         );`)

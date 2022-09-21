@@ -5,7 +5,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DepthEntity } from './entities/depth.entity';
 
 @Module({
-  imports:[TypeOrmModule.forFeature([DepthEntity])],
+  imports:[
+    TypeOrmModule.forFeature([DepthEntity])
+  ],
   providers: [DepthService, DepthResolver]
 })
 export class DepthModule {}
