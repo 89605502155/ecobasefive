@@ -5,16 +5,16 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class DepthService {
-    constructor(
-        @InjectRepository(DepthEntity)
-        private readonly depthsRepository: Repository<DepthEntity>,
-    ){}
+	constructor(
+		@InjectRepository(DepthEntity)
+		private readonly depthsRepository: Repository<DepthEntity>,
+	){}
 
-    async getAllDepths():Promise<DepthEntity[]>{
-        return this.depthsRepository.find()
-    }
-    // async getDepthByStation(station: string):Promise<DepthEntity[]>{
-    //     return this.depthsRepository.findBy({station})
-    // }
+	async getAllDepths():Promise<DepthEntity[]>{
+		return this.depthsRepository.find();
+	}
+	async getDepthByStation(stationName: string):Promise<DepthEntity[]>{
+		return this.depthsRepository.find();
+	}
 
 }

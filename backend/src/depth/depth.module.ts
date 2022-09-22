@@ -6,7 +6,7 @@ import { DepthEntity } from './entities/depth.entity';
 
 @Module({
   imports:[
-    TypeOrmModule.forFeature([DepthEntity])
+	TypeOrmModule.forFeature([DepthEntity])
   ],
   providers: [DepthService, DepthResolver]
 })

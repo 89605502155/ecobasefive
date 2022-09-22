@@ -4,14 +4,14 @@ import { StationService } from 'src/station/services/station/station.service';
 
 @Resolver('Station')
 export class StationResolver {
-    constructor(
-        private readonly stationService:StationService
-    ){}
+	constructor(
+		private readonly stationService:StationService
+	){}
 
-    @Query(()=> [StationEntity])
-    async getAll():Promise<StationEntity[]>{
-        return this.stationService.getAll()
-    }
+	@Query(()=> [StationEntity])
+	async getAll():Promise<StationEntity[]>{
+		return this.stationService.getAll();
+	}
 
 
 }

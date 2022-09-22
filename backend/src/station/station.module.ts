@@ -5,9 +5,9 @@ import { StationService } from './services/station/station.service';
 import { StationResolver } from './resolvers/station/station.resolver';
 
 @Module({
-    imports:[
-        TypeOrmModule.forFeature([StationEntity])
-    ],
-    providers: [StationService, StationResolver]
+	imports:[
+		TypeOrmModule.forFeature([StationEntity])
+	],
+	providers: [StationService, StationResolver]
 })
 export class StationModule {}
