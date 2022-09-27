@@ -5,11 +5,9 @@ const app_module_1 = require("./app.module");
 const config_1 = require("@nestjs/config");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
-    const config = await app.get(config_1.ConfigService);
+    const config = app.get(config_1.ConfigService);
     const port = config.get('API_PORT');
-    await app.listen(port || 3000, () => {
-        console.log('app started on log ${port}');
-    });
+    await app.listen(port || 3000);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

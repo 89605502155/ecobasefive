@@ -4,4 +4,5 @@ export declare class DepthService {
     private readonly depthsRepository;
     constructor(depthsRepository: Repository<DepthEntity>);
     getAllDepths(): Promise<DepthEntity[]>;
+    getDepthByStation(stationName: string): Promise<DepthEntity[]>;
 }

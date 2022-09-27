@@ -11,27 +11,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StationEntity = void 0;
 const graphql_1 = require("@nestjs/graphql");
+const depth_entity_1 = require("../../depth/entities/depth.entity");
 const typeorm_1 = require("typeorm");
 let StationEntity = class StationEntity {
 };
 __decorate([
     (0, graphql_1.Field)(),
-    (0, typeorm_1.PrimaryGeneratedColumn)({ name: "name" }),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'name' }),
     __metadata("design:type", String)
 ], StationEntity.prototype, "name", void 0);
 __decorate([
     (0, graphql_1.Field)(),
-    (0, typeorm_1.Column)({ name: "longitude" }),
+    (0, typeorm_1.Column)({ name: 'longitude' }),
     __metadata("design:type", Number)
 ], StationEntity.prototype, "longitude", void 0);
 __decorate([
     (0, graphql_1.Field)(),
-    (0, typeorm_1.Column)({ name: "latitude" }),
+    (0, typeorm_1.Column)({ name: 'latitude' }),
     __metadata("design:type", Number)
 ], StationEntity.prototype, "latitude", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => [depth_entity_1.DepthEntity]),
+    (0, typeorm_1.OneToMany)(() => depth_entity_1.DepthEntity, (depths) => depths.station),
+    __metadata("design:type", Array)
+], StationEntity.prototype, "depths", void 0);
 StationEntity = __decorate([
     (0, graphql_1.ObjectType)(),
-    (0, typeorm_1.Entity)({ name: "station" })
+    (0, typeorm_1.Entity)({ name: 'station' })
 ], StationEntity);
 exports.StationEntity = StationEntity;
 //# sourceMappingURL=station.entity.js.map

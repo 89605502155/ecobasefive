@@ -1,5 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { DepthEntity } from 'src/depth/entities/depth.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 // import { IDepth } from './depth.interface';
 
 @ObjectType()
@@ -22,5 +23,9 @@ export class StationEntity {
 
 	// @OneToMany(()=>DepthEntity, (depths)=>depths.station)
 	// depths: DepthEntity[]
+
+	@Field(()=>[DepthEntity])
+	@OneToMany(()=>DepthEntity, (depths)=>depths.station)
+	depths: DepthEntity[];
 
 }

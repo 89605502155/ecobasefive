@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { InputType } from '@nestjs/graphql';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DepthEntity } from 'src/depth/entities/depth.entity';
-import { Repository } from 'typeorm';
+import { StationEntity } from 'src/station/entities/station.entity';
+import { Equal, Repository } from 'typeorm';
 
 @Injectable()
 export class DepthService {
@@ -14,7 +16,9 @@ export class DepthService {
 		return this.depthsRepository.find();
 	}
 	async getDepthByStation(stationName: string):Promise<DepthEntity[]>{
-		return this.depthsRepository.find();
+		return this.depthsRepository.findBy({
+			station: Equal(stationName)
+		});
 	}
 
 }

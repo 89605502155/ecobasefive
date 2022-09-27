@@ -12,14 +12,16 @@ const typeorm_1 = require("@nestjs/typeorm");
 const station_entity_1 = require("./entities/station.entity");
 const station_service_1 = require("./services/station/station.service");
 const station_resolver_1 = require("./resolvers/station/station.resolver");
+const depth_entity_1 = require("../depth/entities/depth.entity");
+const depth_service_1 = require("../depth/services/depth/depth.service");
 let StationModule = class StationModule {
 };
 StationModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([station_entity_1.StationEntity])
+            typeorm_1.TypeOrmModule.forFeature([station_entity_1.StationEntity, depth_entity_1.DepthEntity])
         ],
-        providers: [station_service_1.StationService, station_resolver_1.StationResolver]
+        providers: [station_service_1.StationService, station_resolver_1.StationResolver, depth_service_1.DepthService]
     })
 ], StationModule);
 exports.StationModule = StationModule;

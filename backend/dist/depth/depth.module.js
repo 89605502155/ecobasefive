@@ -9,17 +9,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DepthModule = void 0;
 const common_1 = require("@nestjs/common");
 const depth_service_1 = require("./services/depth/depth.service");
-const depth_resolver_1 = require("./resolvers/depth/depth.resolver");
 const typeorm_1 = require("@nestjs/typeorm");
 const depth_entity_1 = require("./entities/depth.entity");
+const station_entity_1 = require("../station/entities/station.entity");
 let DepthModule = class DepthModule {
 };
 DepthModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([depth_entity_1.DepthEntity])
+            typeorm_1.TypeOrmModule.forFeature([depth_entity_1.DepthEntity, station_entity_1.StationEntity])
         ],
-        providers: [depth_service_1.DepthService, depth_resolver_1.DepthResolver]
+        providers: [depth_service_1.DepthService]
     })
 ], DepthModule);
 exports.DepthModule = DepthModule;

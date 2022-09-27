@@ -24,6 +24,11 @@ let DepthService = class DepthService {
     async getAllDepths() {
         return this.depthsRepository.find();
     }
+    async getDepthByStation(stationName) {
+        return this.depthsRepository.findBy({
+            station: (0, typeorm_2.Equal)(stationName)
+        });
+    }
 };
 DepthService = __decorate([
     (0, common_1.Injectable)(),

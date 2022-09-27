@@ -7,15 +7,17 @@ type DepthEntity {
   depth: Float!
   id: ID!
   salinity: Float
-  station: String!
+  station: StationEntity!
 }
 
 type Query {
   getAll: [StationEntity!]!
   getAllDepths: [DepthEntity!]!
+  getDepthByStation(station: String!): [DepthEntity!]!
 }
 
 type StationEntity {
+  depths: [DepthEntity!]!
   latitude: Float!
   longitude: Float!
   name: String!

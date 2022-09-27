@@ -1,5 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { Entity,  Column,  PrimaryGeneratedColumn} from 'typeorm';
+import { StationEntity } from 'src/station/entities/station.entity';
+import { Entity,  Column,  PrimaryGeneratedColumn, ManyToOne} from 'typeorm';
 
 @ObjectType()
 @Entity({name:'depth'})
@@ -20,12 +21,12 @@ export class DepthEntity {
 	@Column({nullable:true, name:'DOC'})
 	DOC: number;
 
-	// @Field(()=>StationEntity)
-	// @ManyToOne(()=>StationEntity,(station)=>station.name)
-	// station: string
+	@Field(()=>StationEntity)
+	@ManyToOne(()=>StationEntity,(station)=>station.depths)
+	station: StationEntity;
 
-	@Field()
-	@Column({name:'station'})
-	station:string;
+	// @Field()
+	// @Column({name:'station'})
+	// station:string;
 
 }
