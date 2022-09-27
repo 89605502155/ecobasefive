@@ -46,7 +46,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], StationResolver.prototype, "getAllDepths", null);
 __decorate([
-    (0, graphql_1.Query)(() => [depth_entity_1.DepthEntity]),
+    (0, graphql_1.Query)(() => [depth_entity_1.DepthEntity], { nullable: true }),
     __param(0, (0, graphql_1.Args)('station')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

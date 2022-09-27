@@ -8,5 +8,5 @@ export declare class StationResolver {
     constructor(stationService: StationService, depthService: DepthService);
     getAll(): Promise<StationEntity[]>;
     getAllDepths(): Promise<DepthEntity[]>;
-    getDepthByStation(stationName: string): Promise<DepthEntity[]>;
+    getDepthByStation(stationName: string): Promise<DepthEntity[] | null>;
 }

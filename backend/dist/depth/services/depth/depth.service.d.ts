@@ -3,6 +3,6 @@ import { Repository } from 'typeorm';
 export declare class DepthService {
     private readonly depthsRepository;
     constructor(depthsRepository: Repository<DepthEntity>);
-    getAllDepths(): Promise<DepthEntity[]>;
-    getDepthByStation(stationName: string): Promise<DepthEntity[]>;
+    getAllDepths(): Promise<DepthEntity[] | null>;
+    getDepthByStation(stationName: string): Promise<DepthEntity[] | null>;
 }

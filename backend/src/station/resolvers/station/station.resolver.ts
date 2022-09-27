@@ -21,8 +21,8 @@ export class StationResolver {
 		return this.depthService.getAllDepths();
 	}
 
-	@Query(()=>[DepthEntity])
-	async getDepthByStation(@Args('station') stationName: string): Promise<DepthEntity[]>{
+	@Query(()=>[DepthEntity],{nullable: true})
+	async getDepthByStation(@Args('station') stationName: string): Promise<DepthEntity[]|null>{
 		return this.depthService.getDepthByStation(stationName);
 	}
 

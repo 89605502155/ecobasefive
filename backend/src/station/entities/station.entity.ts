@@ -24,8 +24,8 @@ export class StationEntity {
 	// @OneToMany(()=>DepthEntity, (depths)=>depths.station)
 	// depths: DepthEntity[]
 
-	@Field(()=>[DepthEntity])
-	@OneToMany(()=>DepthEntity, (depths)=>depths.station)
-	depths: DepthEntity[];
+	@Field(()=>[DepthEntity], {nullable:true})
+	@OneToMany(()=>DepthEntity, (depths)=>depths.station, {nullable:true})
+	depths?: DepthEntity[];
 
 }

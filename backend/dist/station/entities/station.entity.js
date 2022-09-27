@@ -31,8 +31,8 @@ __decorate([
     __metadata("design:type", Number)
 ], StationEntity.prototype, "latitude", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => [depth_entity_1.DepthEntity]),
-    (0, typeorm_1.OneToMany)(() => depth_entity_1.DepthEntity, (depths) => depths.station),
+    (0, graphql_1.Field)(() => [depth_entity_1.DepthEntity], { nullable: true }),
+    (0, typeorm_1.OneToMany)(() => depth_entity_1.DepthEntity, (depths) => depths.station, { nullable: true }),
     __metadata("design:type", Array)
 ], StationEntity.prototype, "depths", void 0);
 StationEntity = __decorate([
