@@ -17,7 +17,7 @@
 		"no-duplicate-switch-case": true,
 		"no-invalid-template-strings": true,
 		"no-misused-new": true,
-		"no-return-await": true,
+		"no-return-await": false,
 		"no-shadowed-variable": true,
 		"no-switch-case-fall-through": true,
 		"no-tautology-expression": true,
@@ -58,7 +58,7 @@
 		"trailing-comma": false,
 		"indent": [
 			true,
-			"tabs",
+			"spaces",
 			4
 		],
 		"linterOptions": {

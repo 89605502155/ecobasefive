@@ -7,9 +7,9 @@ import { DepthEntity } from 'src/depth/entities/depth.entity';
 import { DepthService } from 'src/depth/services/depth/depth.service';
 
 @Module({
-	imports:[
-		TypeOrmModule.forFeature([StationEntity, DepthEntity])
-	],
-	providers: [StationService, StationResolver, DepthService]
+    imports:[
+        TypeOrmModule.forFeature([StationEntity, DepthEntity])
+    ],
+    providers: [StationService, StationResolver, DepthService]
 })
 export class StationModule {}
