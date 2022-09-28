@@ -22,10 +22,10 @@ let DepthService = class DepthService {
         this.depthsRepository = depthsRepository;
     }
     async getAllDepths() {
-        return this.depthsRepository.find();
+        return await this.depthsRepository.find();
     }
     async getDepthByStation(stationName) {
-        return this.depthsRepository.findBy({
+        return await this.depthsRepository.findBy({
             station: (0, typeorm_2.Equal)(stationName)
         });
     }

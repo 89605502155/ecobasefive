@@ -1,4 +1,5 @@
 import { Field, ObjectType } from '@nestjs/graphql';
+import { IsNotEmpty } from 'class-validator';
 import { DepthEntity } from 'src/depth/entities/depth.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 // import { IDepth } from './depth.interface';

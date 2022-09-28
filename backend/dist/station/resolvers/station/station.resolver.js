@@ -24,13 +24,13 @@ let StationResolver = class StationResolver {
         this.depthService = depthService;
     }
     async getAll() {
-        return this.stationService.getAll();
+        return await this.stationService.getAll();
     }
     async getAllDepths() {
-        return this.depthService.getAllDepths();
+        return await this.depthService.getAllDepths();
     }
     async getDepthByStation(stationName) {
-        return this.depthService.getDepthByStation(stationName);
+        return await this.depthService.getDepthByStation(stationName);
     }
 };
 __decorate([

@@ -1,4 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { IsNotEmpty } from 'class-validator';
 import { StationEntity } from 'src/station/entities/station.entity';
 import { Entity,  Column,  PrimaryGeneratedColumn, ManyToOne} from 'typeorm';
 

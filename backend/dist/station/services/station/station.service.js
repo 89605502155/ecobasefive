@@ -22,7 +22,7 @@ let StationService = class StationService {
         this.stationsRepository = stationsRepository;
     }
     async getAll() {
-        return this.stationsRepository.find();
+        return await this.stationsRepository.find();
     }
 };
 StationService = __decorate([

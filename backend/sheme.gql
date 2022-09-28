@@ -2,12 +2,26 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input CreateUserInput {
+  country: String!
+  email: String!
+  login: Float!
+  name: String!
+  password: String!
+  surname: String!
+  university: String!
+}
+
 type DepthEntity {
   DOC: Float
   depth: Float!
   id: ID!
   salinity: Float
   station: StationEntity!
+}
+
+type Mutation {
+  createUser(createUser: CreateUserInput!): UserEntity!
 }
 
 type Query {
@@ -21,4 +35,23 @@ type StationEntity {
   latitude: Float!
   longitude: Float!
   name: String!
+}
+
+enum Status {
+  Admin
+  Client
+  Editor
+  Guest
+}
+
+type UserEntity {
+  confirmed: Boolean
+  country: String!
+  email: String!
+  login: Float!
+  name: String!
+  password: String!
+  status: Status
+  surname: String!
+  university: String!
 }
