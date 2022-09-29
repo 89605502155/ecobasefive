@@ -21,13 +21,26 @@ type DepthEntity {
 }
 
 type Mutation {
-  createUser(createUser: CreateUserInput!): UserEntity!
+  createUser(createUser: CreateUserInput!): ReturnAfterCreatingInput!
 }
 
 type Query {
   getAll: [StationEntity!]!
   getAllDepths: [DepthEntity!]!
   getDepthByStation(station: String!): [DepthEntity!]
+}
+
+type ReturnAfterCreatingInput {
+  confirmed: Boolean
+  country: String!
+  email: String!
+  login: Float!
+  name: String!
+  password: String!
+  status: Status
+  surname: String!
+  token: String!
+  university: String!
 }
 
 type StationEntity {
@@ -42,16 +55,4 @@ enum Status {
   Client
   Editor
   Guest
-}
-
-type UserEntity {
-  confirmed: Boolean
-  country: String!
-  email: String!
-  login: Float!
-  name: String!
-  password: String!
-  status: Status
-  surname: String!
-  university: String!
 }

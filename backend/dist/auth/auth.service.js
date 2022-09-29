@@ -19,6 +19,7 @@ const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./entities/user.entity");
 const jsonwebtoken_1 = require("jsonwebtoken");
 const config_1 = require("@nestjs/config");
+const return_after_creating_entity_1 = require("./entities/return-after-creating.entity");
 let AuthService = class AuthService {
     constructor(userRepository, configService) {
         this.userRepository = userRepository;
@@ -48,9 +49,10 @@ let AuthService = class AuthService {
         }, 'laser');
     }
     buildUserResponse(user) {
-        return {
-            user: Object.assign(Object.assign({}, user), { token: this.generateJwt(user) })
-        };
+        const returnUser = new return_after_creating_entity_1.ReturnAfterCreatingInput();
+        Object.assign(returnUser, user);
+        returnUser.token = this.generateJwt(user);
+        return returnUser;
     }
 };
 AuthService = __decorate([

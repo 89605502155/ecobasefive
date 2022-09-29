@@ -15,19 +15,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const auth_service_1 = require("./auth.service");
-const user_entity_1 = require("./entities/user.entity");
 const create_user_input_1 = require("./inputs/create-user.input");
+const return_after_creating_entity_1 = require("./entities/return-after-creating.entity");
 let AuthResolver = class AuthResolver {
     constructor(authService) {
         this.authService = authService;
     }
     async createUser(createUserInput) {
         const user = await this.authService.createUser(createUserInput);
-        return user;
+        return this.authService.buildUserResponse(user);
     }
 };
 __decorate([
-    (0, graphql_1.Mutation)(() => user_entity_1.UserEntity),
+    (0, graphql_1.Mutation)(() => return_after_creating_entity_1.ReturnAfterCreatingInput),
     __param(0, (0, graphql_1.Args)('createUser')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_user_input_1.CreateUserInput]),

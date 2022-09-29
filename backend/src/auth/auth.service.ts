@@ -6,6 +6,7 @@ import { sign } from 'jsonwebtoken';
 import { ConfigService } from '@nestjs/config';
 import { UserResponseInterface } from './types/user-response.interface';
 import { CreateUserInput } from './inputs/create-user.input';
+import { ReturnAfterCreatingInput } from './entities/return-after-creating.entity';
 
 @Injectable()
 export class AuthService {
@@ -41,12 +42,16 @@ export class AuthService {
         },'laser');
     }
 
-    buildUserResponse(user: UserEntity): UserResponseInterface{
-        return {
-            user: {
-                ...user,
-                token: this.generateJwt(user)
-            }
-        };
+    buildUserResponse(user: UserEntity): ReturnAfterCreatingInput{
+        const returnUser= new ReturnAfterCreatingInput();
+        Object.assign(returnUser, user);
+        returnUser.token=this.generateJwt(user);
+        // return {
+        //     user: {
+        //         ...user,
+        //         token: this.generateJwt(user)
+        //     }
+        // };
+        return returnUser;
     }
 }

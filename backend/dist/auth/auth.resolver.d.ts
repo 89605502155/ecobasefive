@@ -1,8 +1,8 @@
 import { AuthService } from './auth.service';
-import { UserEntity } from './entities/user.entity';
 import { CreateUserInput } from './inputs/create-user.input';
+import { ReturnAfterCreatingInput } from './entities/return-after-creating.entity';
 export declare class AuthResolver {
     private readonly authService;
     constructor(authService: AuthService);
-    createUser(createUserInput: CreateUserInput): Promise<UserEntity>;
+    createUser(createUserInput: CreateUserInput): Promise<ReturnAfterCreatingInput>;
 }
