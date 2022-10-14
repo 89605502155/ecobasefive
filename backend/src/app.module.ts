@@ -1,29 +1,41 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { StationModule } from './modules/station/station.module';
-import { AuthModule } from './modules/auth/auth.module';
-import { DatabaseModule } from './database/database.module';
-import { GraphQL } from './config';
-import { RoleModule } from './modules/role/role.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { StationModule } from './station/station.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, envFilePath:'../.env' }),
-    GraphQL,
-    RoleModule,
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+        driver: ApolloDriver,
+        debug: true,
+        playground: true,
+        autoSchemaFile: 'sheme.gql',
+        sortSchema: true
+    }),
+    TypeOrmModule.forRootAsync({
+        imports: [ConfigModule],
+        inject: [ConfigService],
+        useFactory: async (config:ConfigService) => ({
+            type:  config.get<'aurora-postgres'>('TYPEORM_CONNECTION'),
+            username: config.get<string>('TYPEORM_USERNAME'),
+            password: config.get<string>('TYPEORM_PASSWORD'),
+            database: config.get<string>('TYPEORM_DATABASE'),
+            port: config.get<number>('TYPEORM_PORT'),
+            entities: [ __dirname + 'dist/**/*.entity{.ts,.js}' ],
+            synchronize: true,
+        // migrations:[__dirname + 'dist/**/*.migration{.ts,.js}'],
+            autoLoadEntities: true,
+            logging: true
+        }),
+    }),
     StationModule,
-    AuthModule,
-    DatabaseModule
+    AuthModule
   ],
   controllers: [],
   providers: []
 })
-export class AppModule {
-  static host: string;
-    static port: number;
-
-    constructor(private readonly configService: ConfigService) {
-        AppModule.host = this.configService.get('HOST');
-        AppModule.port = +this.configService.get('PORT');
-    }
-}
+export class AppModule {}

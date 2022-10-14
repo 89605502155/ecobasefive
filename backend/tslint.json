@@ -31,7 +31,7 @@
 		"arrow-return-shorthand": true,
 		"class-name": true,
 		"file-name-casing": [
-			false,
+			true,
 			"kebab-case"
 		],
 		"prefer-switch": [
