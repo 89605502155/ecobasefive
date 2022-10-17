@@ -1,14 +1,15 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { StationModule } from './station/station.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { AuthModule } from './auth/auth.module';
+import configuration from './config/configuration';
+import { AppDataSource } from 'ormconfig';
+import { StationModule } from './station/station.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true, envFilePath:'../.env' }),
+    ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
         driver: ApolloDriver,
         debug: true,
@@ -19,21 +20,9 @@ import { AuthModule } from './auth/auth.module';
     TypeOrmModule.forRootAsync({
         imports: [ConfigModule],
         inject: [ConfigService],
-        useFactory: async (config:ConfigService) => ({
-            type:  config.get<'aurora-postgres'>('TYPEORM_CONNECTION'),
-            username: config.get<string>('TYPEORM_USERNAME'),
-            password: config.get<string>('TYPEORM_PASSWORD'),
-            database: config.get<string>('TYPEORM_DATABASE'),
-            port: config.get<number>('TYPEORM_PORT'),
-            entities: [ __dirname + 'dist/**/*.entity{.ts,.js}' ],
-            synchronize: true,
-        // migrations:[__dirname + 'dist/**/*.migration{.ts,.js}'],
-            autoLoadEntities: true,
-            logging: true
-        }),
+        useFactory: async (config:ConfigService) => (AppDataSource.options),
     }),
-    StationModule,
-    AuthModule
+    StationModule
   ],
   controllers: [],
   providers: []

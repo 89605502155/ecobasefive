@@ -1,32 +1,22 @@
-import { Field, ObjectType } from '@nestjs/graphql';
-import { IsNotEmpty } from 'class-validator';
-import { DepthEntity } from 'src/depth/entities/depth.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-// import { IDepth } from './depth.interface';
+import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 @ObjectType()
-@Entity({name:'station'})
-export class StationEntity {
-    @Field()
-    @PrimaryGeneratedColumn({name:'name'})
-    name: string;
+@Entity({ name: 'station' })
+export class Station {
+  @Field(()=>ID)
+  @PrimaryGeneratedColumn({name:'id'})
+  id: number;
 
-    @Field()
-    @Column({name:'longitude'})
-    longitude: number;
+  @Field()
+  @PrimaryColumn({name:'name'})
+  name: string;
 
-    @Field()
-    @Column({name:'latitude'})
-    latitude: number;
+  @Field()
+  @Column({name:'longitude'})
+  longitude: number;
 
-    // @Column()
-    // depths: IDepth[];
-
-    // @OneToMany(()=>DepthEntity, (depths)=>depths.station)
-    // depths: DepthEntity[]
-
-    @Field(()=>[DepthEntity], {nullable:true})
-    @OneToMany(()=>DepthEntity, (depths)=>depths.station, {nullable:true})
-    depths?: DepthEntity[];
-
+  @Field()
+  @Column({name:'latitude'})
+  latitude: number;
 }

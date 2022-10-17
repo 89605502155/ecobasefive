@@ -2,13 +2,13 @@ version: '3.8'
 
 services:
   db:
-    container_name: postgres-rusoceans
+    container_name: postgres-rusoceans2
     image: postgres:14.0-alpine
     restart: always
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=qwerty
-      - POSTGRES_DB=rusocean1
+      - POSTGRES_DB=rusocean2
     volumes:
       - ./pgdata:/var/lib/postgresql/data
     ports:
@@ -17,19 +17,18 @@ services:
   pgadmin:
     container_name: pgadminide
     image: dpage/pgadmin4
+    depends_on:
+      - db
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_DEFAULT_EMAIL: ferubko1999@yandex.ru
+      PGADMIN_DEFAULT_PASSWORD: qwerty
     ports:
-      - ${PGADMIN_PORT}:${PGADMIN_PORT}
-  
+      - "5050:80"
+
   redis:
     image: 'bitnami/redis:latest'
-    container_name: redis-rusoceans
     environment:
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
-      - REDIS_PORT_NUMBER=${REDIS_PORT}
+      - REDIS_PASSWORD=red
+      - REDIS_PORT_NUMBER=6379
     ports:
-      - ${REDIS_PORT}:${REDIS_PORT}
-
-
+      - '6379:6379'
