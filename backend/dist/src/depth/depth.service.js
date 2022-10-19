@@ -6,27 +6,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StationService = void 0;
+exports.DepthService = void 0;
 const common_1 = require("@nestjs/common");
-let StationService = class StationService {
-    create(createStationInput) {
-        return 'This action adds a new station';
+let DepthService = class DepthService {
+    create(createDepthInput) {
+        return 'This action adds a new depth';
     }
     findAll() {
-        return `This action returns all station`;
+        return `This action returns all depth`;
     }
-    findOne(name) {
-        return `This action returns a #${name} station`;
+    findOne(id) {
+        return `This action returns a #${id} depth`;
     }
-    update(name, updateStationInput) {
-        return `This action updates a #${name} station`;
+    update(id, updateDepthInput) {
+        return `This action updates a #${id} depth`;
     }
-    remove(name) {
-        return `This action removes a #${name} station`;
+    remove(id) {
+        return `This action removes a #${id} depth`;
     }
 };
-StationService = __decorate([
+DepthService = __decorate([
     (0, common_1.Injectable)()
-], StationService);
-exports.StationService = StationService;
-//# sourceMappingURL=station.service.js.map
+], DepthService);
+exports.DepthService = DepthService;
+//# sourceMappingURL=depth.service.js.map

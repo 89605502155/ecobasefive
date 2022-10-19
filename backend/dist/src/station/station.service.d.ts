@@ -3,7 +3,7 @@ import { UpdateStationInput } from './dto/update-station.input';
 export declare class StationService {
     create(createStationInput: CreateStationInput): string;
     findAll(): string;
-    findOne(id: number): string;
-    update(id: number, updateStationInput: UpdateStationInput): string;
-    remove(id: number): string;
+    findOne(name: string): string;
+    update(name: string, updateStationInput: UpdateStationInput): string;
+    remove(name: string): string;
 }

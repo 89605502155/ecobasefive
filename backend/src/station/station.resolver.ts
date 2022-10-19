@@ -19,17 +19,17 @@ export class StationResolver {
   }
 
   @Query(() => Station, { name: 'station' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.stationService.findOne(id);
+  findOne(@Args('name') name: string) {
+    return this.stationService.findOne(name);
   }
 
   @Mutation(() => Station)
   updateStation(@Args('updateStationInput') updateStationInput: UpdateStationInput) {
-    return this.stationService.update(updateStationInput.id, updateStationInput);
+    return this.stationService.update(updateStationInput.name, updateStationInput);
   }
 
   @Mutation(() => Station)
-  removeStation(@Args('id', { type: () => Int }) id: number) {
-    return this.stationService.remove(id);
+  removeStation(@Args('name') name: string) {
+    return this.stationService.remove(name);
   }
 }

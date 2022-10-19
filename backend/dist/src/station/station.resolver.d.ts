@@ -6,7 +6,7 @@ export declare class StationResolver {
     constructor(stationService: StationService);
     createStation(createStationInput: CreateStationInput): string;
     findAll(): string;
-    findOne(id: number): string;
+    findOne(name: string): string;
     updateStation(updateStationInput: UpdateStationInput): string;
-    removeStation(id: number): string;
+    removeStation(name: string): string;
 }

@@ -12,15 +12,15 @@ export class StationService {
     return `This action returns all station`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} station`;
+  findOne(name: string) {
+    return `This action returns a #${name} station`;
   }
 
-  update(id: number, updateStationInput: UpdateStationInput) {
-    return `This action updates a #${id} station`;
+  update(name: string, updateStationInput: UpdateStationInput) {
+    return `This action updates a #${name} station`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} station`;
+  remove(name: string) {
+    return `This action removes a #${name} station`;
   }
 }

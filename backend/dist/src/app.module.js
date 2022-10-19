@@ -15,6 +15,7 @@ const apollo_1 = require("@nestjs/apollo");
 const configuration_1 = require("./config/configuration");
 const ormconfig_1 = require("../ormconfig");
 const station_module_1 = require("./station/station.module");
+const depth_module_1 = require("./depth/depth.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -33,7 +34,8 @@ AppModule = __decorate([
                 inject: [config_1.ConfigService],
                 useFactory: async (config) => (ormconfig_1.AppDataSource.options),
             }),
-            station_module_1.StationModule
+            station_module_1.StationModule,
+            depth_module_1.DepthModule
         ],
         controllers: [],
         providers: []

@@ -28,14 +28,14 @@ let StationResolver = class StationResolver {
     findAll() {
         return this.stationService.findAll();
     }
-    findOne(id) {
-        return this.stationService.findOne(id);
+    findOne(name) {
+        return this.stationService.findOne(name);
     }
     updateStation(updateStationInput) {
-        return this.stationService.update(updateStationInput.id, updateStationInput);
+        return this.stationService.update(updateStationInput.name, updateStationInput);
     }
-    removeStation(id) {
-        return this.stationService.remove(id);
+    removeStation(name) {
+        return this.stationService.remove(name);
     }
 };
 __decorate([
@@ -53,9 +53,9 @@ __decorate([
 ], StationResolver.prototype, "findAll", null);
 __decorate([
     (0, graphql_1.Query)(() => station_entity_1.Station, { name: 'station' }),
-    __param(0, (0, graphql_1.Args)('id', { type: () => graphql_1.Int })),
+    __param(0, (0, graphql_1.Args)('name')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], StationResolver.prototype, "findOne", null);
 __decorate([
@@ -67,9 +67,9 @@ __decorate([
 ], StationResolver.prototype, "updateStation", null);
 __decorate([
     (0, graphql_1.Mutation)(() => station_entity_1.Station),
-    __param(0, (0, graphql_1.Args)('id', { type: () => graphql_1.Int })),
+    __param(0, (0, graphql_1.Args)('name')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], StationResolver.prototype, "removeStation", null);
 StationResolver = __decorate([

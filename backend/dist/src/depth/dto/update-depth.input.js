@@ -9,28 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateStationInput = void 0;
-const create_station_input_1 = require("./create-station.input");
+exports.UpdateDepthInput = void 0;
+const create_depth_input_1 = require("./create-depth.input");
 const graphql_1 = require("@nestjs/graphql");
-const class_validator_1 = require("class-validator");
-let UpdateStationInput = class UpdateStationInput extends (0, graphql_1.PartialType)(create_station_input_1.CreateStationInput) {
+let UpdateDepthInput = class UpdateDepthInput extends (0, graphql_1.PartialType)(create_depth_input_1.CreateDepthInput) {
 };
 __decorate([
-    (0, graphql_1.Field)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], UpdateStationInput.prototype, "name", void 0);
-__decorate([
-    (0, graphql_1.Field)({ nullable: true }),
+    (0, graphql_1.Field)(() => graphql_1.Int),
     __metadata("design:type", Number)
-], UpdateStationInput.prototype, "longitude", void 0);
-__decorate([
-    (0, graphql_1.Field)({ nullable: true }),
-    __metadata("design:type", Number)
-], UpdateStationInput.prototype, "latitude", void 0);
-UpdateStationInput = __decorate([
+], UpdateDepthInput.prototype, "id", void 0);
+UpdateDepthInput = __decorate([
     (0, graphql_1.InputType)()
-], UpdateStationInput);
-exports.UpdateStationInput = UpdateStationInput;
-//# sourceMappingURL=update-station.input.js.map
+], UpdateDepthInput);
+exports.UpdateDepthInput = UpdateDepthInput;
+//# sourceMappingURL=update-depth.input.js.map

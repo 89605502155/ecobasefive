@@ -6,6 +6,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import configuration from './config/configuration';
 import { AppDataSource } from 'ormconfig';
 import { StationModule } from './station/station.module';
+import { DepthModule } from './depth/depth.module';
 
 @Module({
   imports: [
@@ -22,7 +23,8 @@ import { StationModule } from './station/station.module';
         inject: [ConfigService],
         useFactory: async (config:ConfigService) => (AppDataSource.options),
     }),
-    StationModule
+    StationModule,
+    DepthModule
   ],
   controllers: [],
   providers: []
