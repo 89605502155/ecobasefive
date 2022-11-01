@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: postgres-rusoceans3
+    image: postgres:14.0-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=qwerty
+      - POSTGRES_DB=rusocean3
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    container_name: pgadminide2
+    image: dpage/pgadmin4
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ferubko1999@yandex.ru
+      PGADMIN_DEFAULT_PASSWORD: qwerty
+    ports:
+      - "5050:80"
